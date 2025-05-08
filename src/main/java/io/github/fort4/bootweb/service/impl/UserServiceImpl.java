@@ -39,7 +39,8 @@ public class UserServiceImpl implements UserService {
         User savedUser = userRepository.save(user);
 
         // 이메일 전송
-        String verificationLink = "http://localhost:8080/api/users/verify?token=" + verificationToken;
+        //String verificationLink = "http://localhost:8080/api/users/verify?token=" + verificationToken;
+        String verificationLink = "https://0706-115-91-129-236.ngrok-free.app/api/users/verify?token=" + verificationToken;
         mailService.sendVerificationEmail(savedUser.getEmail(), verificationLink);
 
         return savedUser;
